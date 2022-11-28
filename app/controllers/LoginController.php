@@ -1,6 +1,6 @@
 <?php
 require_once './models/Empleado.php';
-require_once "./models/AutentificadorJWT";
+require_once "./models/AutentificadorJWT.php";
 
 class LoginController
 {
@@ -11,12 +11,11 @@ class LoginController
         $usuario = $parametros['usuario'];
         $clave = $parametros['clave'];
 
-        $rol = Empleado::verificarEmpleado($clave, $usuario);
+        $identificacion = Empleado::verificarEmpleado($clave, $usuario);
 
-        if($rol)
+        if($identificacion)
         {
-            $datos = array("rol"=>$rol);
-            $token = AutentificadorJWT::CrearToken($datos);
+            $token = AutentificadorJWT::CrearToken($identificacion);
             $token = json_encode($token);
         
             $response->getBody()->write($token);
