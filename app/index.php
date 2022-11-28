@@ -93,7 +93,7 @@ $app->group('/estadisticas', function (RouteCollectorProxy $group) {
 
 //CSV || altas desde archivos csv y descargar de archivos csv de la base de datos
 $app->group('/csv', function (RouteCollectorProxy $group) {
-  //$group->post('/pedidos[/]', \PedidoController::class . ':CargarCsv')->add(new VerificarEmpleadoMiddleware("mozo"));
+  $group->post('/pedidos[/]', \PedidoController::class . ':CargarCsv')->add(new VerificarEmpleadoMiddleware("mozo"));
   $group->get('/pedidos[/]', \PedidoController::class . ':ObtenerPedidoCsv')->add(new VerificarEmpleadoMiddleware("socio"));
   $group->get('/pedidos/productos[/]', \PedidoController::class . ':ObtenerProductosDelPedidoCsv')->add(new VerificarEmpleadoMiddleware("socio"));
   $group->post('/mesas[/]', \MesaController::class . ':CargarCsv')->add(new VerificarEmpleadoMiddleware("socio"));

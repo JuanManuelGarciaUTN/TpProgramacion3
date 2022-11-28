@@ -152,7 +152,6 @@ class ElementoDelPedido extends Producto
 
     private static function actualizarTiempoDeEspera($tiempo, $codigoPedido)
     {
-        echo Pedido::Existe($codigoPedido);
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta("UPDATE pedidos
                                                         SET tiempo_estimado = :tiempo 
@@ -197,7 +196,7 @@ class ElementoDelPedido extends Producto
         return $direccionArchivo;
     }
 
-    /*public static function AgregarAlPedidoCsv($nombreArchivo, $id_pedido)
+    public static function AgregarAlPedidoCsv($nombreArchivo, $id_pedido)
     {
         try{
             $elementoDelPedido = new ElementoDelPedido();
@@ -235,5 +234,5 @@ class ElementoDelPedido extends Producto
             echo $e;
             return false;
         }
-    }*/
+    }
 }

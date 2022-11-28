@@ -306,14 +306,12 @@ class PedidoController extends Pedido
         return $response;
     }
 
-    /*public function CargarCsv($request, $response, $args)
+    public function CargarCsv($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
         $id_pedido = $parametros['id_pedido'];
-        $id_mesa = $parametros['id_mesa'];
-        $id_mozo = $parametros['id_empleado'];
 
-        if(Pedido::AltaCsv('csv', $id_pedido, $id_mesa, $id_mozo))
+        if(ElementoDelPedido::AgregarAlPedidoCsv('csv', $id_pedido))
         {
           $payload = json_encode(array("mensaje"=>"Pedido dado de alta con exito"));
         }
@@ -325,5 +323,5 @@ class PedidoController extends Pedido
 
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json');
-    }*/
+    }
 }

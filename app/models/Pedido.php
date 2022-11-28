@@ -62,7 +62,7 @@ class Pedido
         }
         else{
             $objAccesoDatos = AccesoDatos::obtenerInstancia();
-            $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos");
+            $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE estado != 'finalizado'");
         }
 
         $consulta->execute();
