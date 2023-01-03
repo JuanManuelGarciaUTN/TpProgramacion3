@@ -8,7 +8,7 @@ class Empleado
     public string $rol;
     public float $salario;
     public bool $estado;
-
+    
     public function crearEmpleado()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();

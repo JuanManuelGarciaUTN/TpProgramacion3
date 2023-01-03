@@ -1,0 +1,5 @@
+750, milanesa de pollo, cocina, 20
+150, agua, bar, 2
+250, quilmes, cerveza, 2
+300, chopera, cerveza, 3
+650, guiso, cocina, 30

@@ -7,17 +7,8 @@ class AccesoDatos
     private function __construct()
     {
         try {
-            $dsn = "mysql:host={$_ENV["HOST"]};dbname={$_ENV["DATABASE"]}";
-
-            $options = array(
-          
-              PDO::MYSQL_ATTR_SSL_CA => "/etc/ssl/certs/ca-certificates.crt",
-              PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-          
-            );
-          
-            $this->objetoPDO = new PDO($dsn, $_ENV["USERNAME"], $_ENV["PASSWORD"], $options);          
-          
+            $this->objetoPDO = new PDO('mysql:host='.$_ENV['MYSQL_HOST'].';dbname='.$_ENV['MYSQL_DB'].';charset=utf8', $_ENV['MYSQL_USER'], $_ENV['MYSQL_PASS'], array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $this->objetoPDO->exec("SET CHARACTER SET utf8");
         } catch (PDOException $e) {
             print "Error: " . $e->getMessage();
             die();

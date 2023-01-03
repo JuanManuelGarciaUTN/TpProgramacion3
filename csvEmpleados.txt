@@ -1,0 +1,4 @@
+cocineroPepe, 1234, cocinero, 80000
+mozoPepe, 1234, mozo, 80000
+bartenderPepe, 1234, bartender, 80000
+cervezeroPepe, 1234, cervezero, 80000

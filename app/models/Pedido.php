@@ -14,6 +14,10 @@ class Pedido
     public $fecha_fin;
     public $productos;
 
+    /*
+    Esta funcion toma las vairables en memoria del objeto Pedido y genera una nueva entrada en la base de datos, 
+    en la tabla pedidos con los datos dados. Devuelve el ID de la nueva entrada.
+    */
     public function alta()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
@@ -191,7 +195,8 @@ class Pedido
         $cantidadMesaMasUsada = 0;
         $cantidadMesaAnalizadaActualmente = 0;
 
-        foreach ($pedidos as $elemento) {
+        foreach ($pedidos as $elemento) 
+        {
             if($mesaAnalizadaActualmente == $elemento)
             {
                 $cantidadMesaAnalizadaActualmente += 1;
@@ -255,27 +260,4 @@ class Pedido
 
         return $direccionArchivo;
     }
-
-    /*public static function AltaCsv($nombreArchivo, $id_pedido, $id_mesa, $id_mozo)
-    {
-        if(!Pedido::Existe($id_pedido) && Mesa::Existe($id_mesa) && Mesa::EstaLibre($id_mesa))
-        {
-            try
-            {
-                $pedido = new Pedido();
-                $pedido->codigo = $id_pedido;
-                $pedido->id_mesa = $id_mesa;
-                $pedido->id_mozo = $id_mozo;
-
-                $pedido->alta();
-                return ElementoDelPedido::AgregarAlPedidoCsv($nombreArchivo, $id_pedido);
-            }
-            catch(Exception $e)
-            {
-                return false;
-            }
-        }
-
-        return false;
-    }*/
 }
