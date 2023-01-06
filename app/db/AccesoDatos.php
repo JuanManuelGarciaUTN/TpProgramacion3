@@ -16,7 +16,7 @@ class AccesoDatos
           
             );
           
-            $this->objetoPDO = new PDO($dsn, $_ENV["USERNAME"], $_ENV["PASSWORD"], $options);          
+            $this->objetoPDO = new PDO($dsn, $_ENV["USERNAME"], "pscale_pw_xg1fbKyp5GVpgKDVxwwEmS7xY4Y8uavIT1bXMnNaKTT", $options);          
           
         } catch (PDOException $e) {
             print "Error: " . $e->getMessage();
@@ -26,7 +26,7 @@ class AccesoDatos
 
     public static function obtenerInstancia()
     {
-        if (!isset(self::$objAccesoDatos)) {
+        if (!isset(self::$objAccesoDatos)){
             self::$objAccesoDatos = new AccesoDatos();
         }
         return self::$objAccesoDatos;

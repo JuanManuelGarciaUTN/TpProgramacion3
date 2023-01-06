@@ -13,7 +13,6 @@ use Slim\Routing\RouteContext;
 require __DIR__ . '/../vendor/autoload.php';
 
 require_once './db/AccesoDatos.php';
-// require_once './middlewares/Logger.php';
 
 require_once './controllers/EmpleadoController.php';
 require_once './controllers/ProductoController.php';
